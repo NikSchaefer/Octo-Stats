@@ -94,6 +94,7 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     margin-top: -100px;
+    flex-wrap: wrap;
 }
 
 .graph {
@@ -192,4 +193,13 @@ svg {
 
 path {
     fill: var(--gray)
+}
+
+.view-more {
+    flex-basis: 100%;
+}
+
+.view-more:hover {
+    color: blue;
+    cursor: pointer;
 }

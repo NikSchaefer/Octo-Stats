@@ -3,6 +3,8 @@ import Axios from 'axios'
 import { userData, defUserData, Repo } from './interfaces'
 import './index.css'
 import * as Icon from "./svg"
+
+
 function Box(props: { num: number, name: string }) {
   function numberWithCommas(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -14,16 +16,17 @@ function Box(props: { num: number, name: string }) {
     </div>
   )
 }
-function Graph(props: {}) {
-  return (
-    <div className="graph">
-
-    </div>
-  )
-}
-function Repos(props: { arr: Repo[], sort: sort }): any {
+function Repos(props: { arr: Repo[], sort: sort, value: boolean }): any {
   let out = []
   let arr: Repo[] = []
+  if (props.arr.length === 0) {
+    return <></>;
+  }
+  let length: number = 10
+  if (props.value) {
+    length = props.arr.length
+  }
+
   if (props.sort === 'size') {
     arr = props.arr.sort(function (a, b) {
       return b.size - a.size
@@ -40,9 +43,9 @@ function Repos(props: { arr: Repo[], sort: sort }): any {
     })
 
   }
-  for (let i = 0; i < props.arr.length; i++) {
+  for (let i = 0; i < length; i++) {
     out.push(
-      <a href={arr[i].html_url} className="repo">
+      <a key={arr[i].name} href={arr[i].html_url} className="repo">
         <h2><Icon.Repo /> {arr[i].name}</h2>
         <p>{arr[i].description}</p>
         <div className="repo__bottom">
@@ -57,8 +60,37 @@ function Repos(props: { arr: Repo[], sort: sort }): any {
   }
   return out
 }
+function getLangStats(repos: any[]) {
+  let mapper = function (ent: { language: any }) {
+    return ent.language
+  }
+  let reducer = function (stats: { [x: string]: any }, lang: string | number) {
+    stats[lang] = (stats[lang] || 0) + 1;
+    return stats
+  }
+  const langStats = repos.map(mapper).reduce(reducer, {});
+  delete langStats['null'];
 
-type sort = "stars" | "forks" | 'size'
+  let out: LangStats[] = []
+  const keys: string[] = Object.keys(langStats)
+  const values: number[] = Object.values(langStats)
+  for (let i = 0; i < keys.length; i++) {
+    out.push({
+      label: keys[i],
+      value: values[i],
+      color: '#f1e05a'
+    })
+  }
+  return out
+};
+
+type sort = "stars" | "forks" | 'size';
+interface LangStats {
+  label: string,
+  value: number,
+  color: string,
+}
+let isActive = true
 export default function IndexPage() {
 
   const [user, setUser] = React.useState<string>('eddiejaoude')
@@ -67,18 +99,36 @@ export default function IndexPage() {
   const [repoData, setRepoData] = React.useState<Repo[]>([])
   const [sortType, setSortType] = React.useState<sort>("stars")
 
+  const [viewMore, setViewMore] = React.useState<boolean>(false)
+  const [langData, setLangData] = React.useState<LangStats[]>([])
+
+  function ViewMore(props: { value: boolean }) {
+    function Toggle() {
+      setViewMore(!viewMore)
+    }
+    if (props.value) {
+      return <p onClick={Toggle} className='view-more'>View Less</p>
+    }
+    return <p onClick={Toggle} className='view-more'>View More</p>
+  }
+
   async function GetRepo() {
-    const data = await Axios.get(`https://api.github.com/users/${user}/repos?per_page=10000`)
+    const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}/repos?per_page=10000`)
     setRepoData(data.data)
   }
   async function Get() {
-    const data = await Axios.get(`https://api.github.com/users/${user}`)
+    const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}`)
     setUserData(data.data)
   }
-  window.onload = function () {
+
+  React.useEffect(() => {
+    if (isActive && repoData.length > 0) {
+      setLangData(getLangStats(repoData))
+      isActive = false
+    }
     Get()
     GetRepo()
-  }
+  })
   return (
     <main>
       <section className="info">
@@ -99,9 +149,10 @@ export default function IndexPage() {
       </section>
       <div id='graph__color' />
       <section className="graphs">
-        <Graph />
-        <Graph />
-        <Graph />
+        <div className="graph"></div>
+        <div className="graph"></div>
+        <div className="graph"></div>
+
       </section>
 
       <section className="repos">
@@ -114,7 +165,8 @@ export default function IndexPage() {
             <p onClick={function () { setSortType('size') }}>Size</p>
           </div>
         </div>
-        <Repos sort={sortType} arr={repoData} />
+        <Repos value={viewMore} sort={sortType} arr={repoData} />
+        <ViewMore value={viewMore} />
       </section>
 
     </main>

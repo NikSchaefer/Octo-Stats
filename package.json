@@ -33,7 +33,5 @@
     "react-helmet": "^6.1.0",
     "styled-components": "^5.2.1"
   },
-  "devDependencies": {
-    "chart.js": "^2.9.4"
-  }
+  "devDependencies": {}
 }
