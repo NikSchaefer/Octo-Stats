@@ -170,3 +170,65 @@ export interface Owner {
     type: string;
     site_admin: boolean;
 }
+
+export interface Event {
+    id: string;
+    type: string;
+    actor: Actor;
+    repo: eventRepo;
+    payload: Payload;
+    public: boolean;
+    created_at: Date;
+}
+
+interface Actor {
+    id: number;
+    login: string;
+    display_login: string;
+    gravatar_id: string;
+    url: string;
+    avatar_url: string;
+}
+
+interface Payload {
+    push_id: number;
+    size: number;
+    distinct_size: number;
+    ref: string;
+    head: string;
+    before: string;
+    commits?: Commit[];
+    issue?: pull_request,
+    pull_request?: pull_request
+}
+interface pull_request {
+    url: string,
+    id: string,
+    node_id: string,
+    html_url: string,
+    diff_url: string,
+    patch_url: string,
+    issue_url: string,
+    number: number,
+    state: string,
+    locked: boolean,
+    title: string,
+}
+interface Commit {
+    sha: string;
+    author: Author;
+    message: string;
+    distinct: boolean;
+    url: string;
+}
+
+interface Author {
+    email: string;
+    name: string;
+}
+
+interface eventRepo {
+    id: number;
+    name: string;
+    url: string;
+}

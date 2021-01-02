@@ -66,6 +66,11 @@ h1, h2, h3 {
     display: flex;
     width: fit-content;
     align-items: center;
+    margin: 0 5px;
+}
+
+.info__subtext p {
+    margin-left: 5px;
 }
 
 .boxes {
@@ -78,6 +83,7 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .box h2 {
@@ -110,7 +116,7 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
-.graph {
+.graph, .commit {
     background-color: white;
     border-radius: 5px;
     height: 350px;
@@ -119,6 +125,16 @@ h1, h2, h3 {
     margin: 5px 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.137);
     text-align: left;
+}
+
+.commit h5 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.commit p {
+    font-size: 22px;
+    margin: 0;
 }
 
 .graph-container {
