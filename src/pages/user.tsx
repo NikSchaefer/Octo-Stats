@@ -77,10 +77,11 @@ function getLangStats(repos: any[]) {
     let out: LangStats[] = []
     const keys: string[] = Object.keys(langStats)
     const values: number[] = Object.values(langStats)
+    const total = values.reduce((a, b) => a + b)
     for (let i = 0; i < keys.length; i++) {
         out.push({
             label: keys[i],
-            value: values[i],
+            value: Math.floor(values[i] / total * 100),
         })
     }
     out.sort(function (a, b) {
@@ -92,7 +93,7 @@ function GraphLang(props: { lang: LangStats[] }): any {
     let out = []
     for (let i = 0; i < props.lang.length; i++) {
         out.push(
-            <div className="graph__lang-div">
+            <div key={i + "graph"} className="graph__lang-div">
                 <p>{props.lang[i].label} {props.lang[i].value}%</p>
                 <div style={{ width: `${props.lang[i].value}%` }} />
             </div>
