@@ -1,6 +1,6 @@
 html, body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Inter, system, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arial, sans-serif;
     text-align: center;
     font-size: 22px;
     color: var(--dark-gray);
@@ -8,7 +8,7 @@ html, body {
 }
 
 :root {
-    --dark-gray: rgb(44, 44, 44);
+    --dark-gray: rgb(42, 42, 46);
     --blue: rgb(0, 102, 255);
     --gray: rgb(56, 56, 56);
 }
@@ -41,8 +41,8 @@ h1, h2, h3 {
 
 .avatar {
     border-radius: 100%;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 }
 
 .info-text a {
@@ -54,10 +54,18 @@ h1, h2, h3 {
     max-width: 500px
 }
 
+.info__subtext {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+    margin: auto;
+    align-items: center;
+}
+
 .boxes {
     display: flex;
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin: 20px 0;
 }
 
 .flex, .box {
@@ -71,9 +79,9 @@ h1, h2, h3 {
     height: 100px;
     flex-direction: column;
     background-color: var(--gray);
-    transform: scale(0.9);
-    border-radius: 10px;
-    margin: 0 10px;
+    transform: scale(0.85);
+    border-radius: 5px;
+    margin: 0;
 }
 
 #graph__color {
@@ -84,10 +92,7 @@ h1, h2, h3 {
 
 .graphs {
     display: flex;
-    justify-content: space-evenly;
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+    justify-content: center;
     margin-top: -100px;
 }
 
@@ -96,11 +101,12 @@ h1, h2, h3 {
     border-radius: 10px;
     height: 400px;
     width: 300px;
+    margin: 0 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.137);
 }
 
 .repos {
-    width: 90%;
+    width: 95%;
     max-width: 1300px;
     display: flex;
     flex-wrap: wrap;
@@ -108,26 +114,39 @@ h1, h2, h3 {
     margin: 100px auto;
 }
 
+.sorting-options {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .repo {
     width: 300px;
     height: 200px;
     text-align: left;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 10px;
     background-color: white;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.137);
     position: relative;
+    transition: all ease-in-out 0.2s;
+}
+
+.repo:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.021);
 }
 
 .repo h2 {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 600;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
 }
 
 .repo p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .repo__bottom {
@@ -142,7 +161,35 @@ h1, h2, h3 {
     margin: 0 10px;
 }
 
+.repos__title {
+    font-size: 40px;
+    margin: 20px 20% 20px 0;
+}
+
+.sort-by {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.sort-by h2 {
+    flex-basis: 100%;
+}
+
+.sort-by p {
+    color: var(--blue)
+}
+
+.sort-by p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 svg {
     width: 20px;
     height: 20px;
+}
+
+path {
+    fill: var(--gray)
 }
