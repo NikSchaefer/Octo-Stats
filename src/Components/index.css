@@ -30,13 +30,21 @@ h1, h2, h3 {
 .info {
     width: 100%;
     background-color: var(--dark-gray);
-    min-height: 600px;
-    height: 50vh;
+    min-height: 50vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     flex-direction: column;
+}
+
+.info-svg {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
 }
 
 .avatar {
@@ -66,7 +74,7 @@ h1, h2, h3 {
     margin: 20px 0;
 }
 
-.flex, .box, .home {
+.flex, .box, .home, .boxes {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +94,7 @@ h1, h2, h3 {
     flex-direction: column;
     background-color: var(--gray);
     border-radius: 5px;
-    margin: 0 6px;
+    margin: 3px 6px;
 }
 
 #graph__color {
@@ -108,7 +116,7 @@ h1, h2, h3 {
     height: 350px;
     padding: 25px;
     width: 250px;
-    margin: 0 20px;
+    margin: 5px 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.137);
     text-align: left;
 }

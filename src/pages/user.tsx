@@ -130,12 +130,22 @@ export default function IndexPage() {
     }
 
     async function GetRepo(user: string) {
-        const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}/repos?per_page=10000`)
-        setRepoData(data.data)
+        try {
+            const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}/repos?per_page=10000`)
+            setRepoData(data.data)
+
+        } catch (err) {
+            window.location.href = '/'
+        }
     }
     async function Get(user: string) {
-        const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}`)
-        setUserData(data.data)
+        try {
+            const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}`)
+            setUserData(data.data)
+
+        } catch (err) {
+            window.location.href = '/'
+        }
     }
 
     React.useEffect(() => {
@@ -153,6 +163,7 @@ export default function IndexPage() {
     return (
         <div>
             <section className="info">
+                <a href="https://github.com/NikSchaefer/Octo-Stats"><Icon.Logo /></a>
                 <img src={userData.avatar_url} alt="..." className="avatar" />
                 <div className="info-text">
                     <h1>{userData.name}</h1>
@@ -199,7 +210,12 @@ export default function IndexPage() {
                 <Repos value={viewMore} sort={sortType} arr={repoData} />
                 <ViewMore value={viewMore} />
             </section>
-
+            <footer>
+                <p>Made
+                    with <span aria-label='Love'>❤️</span> by <a
+                        href="https://github.com/NikSchaefer" style={{ color: 'var(--blue)' }}>
+                        Nik Schaefer</a></p>
+            </footer>
         </div>
     )
 }
