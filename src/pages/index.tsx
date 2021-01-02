@@ -7,7 +7,9 @@ export default function IndexPage() {
   async function handleClick() {
     try {
       const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(input)}`)
-      window.location.href = (`/user?id=${input}`);
+      if (typeof window !== undefined) {
+        window.location.href = (`/user?id=${input}`);
+      }
     } catch (err) {
       const temp = input
       setInput("UserNotFound")

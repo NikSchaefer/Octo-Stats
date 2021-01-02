@@ -107,10 +107,9 @@ interface LangStats {
     value: number,
 }
 let isActive = true
-const a = window.location.href.split('=')
 export default function IndexPage() {
 
-    const [user, setUser] = React.useState<string>(a[a.length - 1])
+    const [user, setUser] = React.useState<string>('NikSchaefer')
     const [userData, setUserData] = React.useState<userData>(defUserData)
 
     const [repoData, setRepoData] = React.useState<Repo[]>([])
@@ -129,11 +128,11 @@ export default function IndexPage() {
         return <p onClick={Toggle} className='view-more'>View More</p>
     }
 
-    async function GetRepo() {
+    async function GetRepo(user: string) {
         const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}/repos?per_page=10000`)
         setRepoData(data.data)
     }
-    async function Get() {
+    async function Get(user: string) {
         const data = await Axios.get(`https://api.github.com/users/${encodeURIComponent(user)}`)
         setUserData(data.data)
     }
@@ -144,10 +143,12 @@ export default function IndexPage() {
             isActive = false
         }
     })
-    window.onload = function () {
-        Get()
-        GetRepo()
-    }
+    React.useEffect(() => {
+        const a = window.location.href.split('=')
+        Get(a[a.length - 1])
+        GetRepo(a[a.length - 1])
+        setUser(a[a.length - 1])
+    }, [])
     return (
         <div>
             <section className="info">
