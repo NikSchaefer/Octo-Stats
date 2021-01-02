@@ -2,7 +2,7 @@ import * as React from "react"
 import Axios from 'axios'
 import { userData, defUserData, Repo } from '../Components/interfaces'
 import * as Icon from "../Components/svg"
-
+import '../Components/index.css'
 function Box(props: { num: number, name: string }) {
     function numberWithCommas(x: number) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
