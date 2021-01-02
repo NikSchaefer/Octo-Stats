@@ -99,11 +99,35 @@ h1, h2, h3 {
 
 .graph {
     background-color: white;
-    border-radius: 10px;
-    height: 400px;
-    width: 300px;
+    border-radius: 5px;
+    height: 350px;
+    padding: 25px;
+    width: 250px;
     margin: 0 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.137);
+    text-align: left;
+}
+
+.graph-container {
+    margin-top: 10px;
+}
+
+.graph__lang-div {
+    margin: 0;
+    font-size: 16px;
+    position: relative;
+}
+
+.graph__lang-div div {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: violet;
+}
+
+.graph__lang-div p {
+    margin: auto;
 }
 
 .repos {

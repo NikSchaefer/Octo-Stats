@@ -78,17 +78,30 @@ function getLangStats(repos: any[]) {
     out.push({
       label: keys[i],
       value: values[i],
-      color: '#f1e05a'
     })
   }
+  out.sort(function (a, b) {
+    return b.value - a.value
+  })
   return out
 };
+function GraphLang(props: { lang: LangStats[] }): any {
+  let out = []
+  for (let i = 0; i < props.lang.length; i++) {
+    out.push(
+      <div className="graph__lang-div">
+        <p>{props.lang[i].label} {props.lang[i].value}%</p>
+        <div style={{ width: `${props.lang[i].value}%` }} />
+      </div>
+    )
+  }
+  return out
+}
 
 type sort = "stars" | "forks" | 'size';
 interface LangStats {
   label: string,
   value: number,
-  color: string,
 }
 let isActive = true
 export default function IndexPage() {
@@ -149,7 +162,12 @@ export default function IndexPage() {
       </section>
       <div id='graph__color' />
       <section className="graphs">
-        <div className="graph"></div>
+        <div className="graph">
+          <h1>Top Languages</h1>
+          <div className='graph-container'>
+            <GraphLang lang={langData} />
+          </div>
+        </div>
         <div className="graph"></div>
         <div className="graph"></div>
 
