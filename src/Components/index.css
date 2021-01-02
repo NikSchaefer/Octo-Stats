@@ -56,9 +56,7 @@ h1, h2, h3 {
 
 .info__subtext {
     display: flex;
-    justify-content: space-evenly;
-    width: 200px;
-    margin: auto;
+    width: fit-content;
     align-items: center;
 }
 
@@ -68,20 +66,27 @@ h1, h2, h3 {
     margin: 20px 0;
 }
 
-.flex, .box {
+.flex, .box, .home {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.box h2 {
+    font-size: 20px;
+}
+
+.box h3 {
+    font-size: 16px;
+}
+
 .box {
-    width: 200px;
-    height: 100px;
+    width: 170px;
+    height: 90px;
     flex-direction: column;
     background-color: var(--gray);
-    transform: scale(0.85);
     border-radius: 5px;
-    margin: 0;
+    margin: 0 6px;
 }
 
 #graph__color {
@@ -226,4 +231,26 @@ path {
 .view-more:hover {
     color: blue;
     cursor: pointer;
+}
+
+.home {
+    height: 90vh;
+    padding-bottom: 10vh;
+    background-color: var(--dark-gray);
+    color: white;
+    flex-direction: column;
+}
+
+input {
+    background-color: var(--gray);
+    font-size: 25px;
+    padding: 20px;
+    margin: 50px 0;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+main img {
+    width: 200px;
 }
