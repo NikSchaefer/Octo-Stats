@@ -20,7 +20,12 @@ function Repos(props: { arr: Repo[], sort: sort, value: boolean }): any {
     if (props.arr.length === 0) {
         return <></>;
     }
-    let length: number = 9
+    let length: number = 0
+    if (props.arr.length < 9) {
+        length = props.arr.length
+    } else {
+        length = 9
+    }
     if (props.value) {
         length = props.arr.length
     }
