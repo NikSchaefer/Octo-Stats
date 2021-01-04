@@ -1,9 +1,18 @@
 module.exports = {
   siteMetadata: {
     title: "OctoStats",
+    description:
+      'Take a look at a more detailed representation of github profile and repo stats',
+    siteUrl: 'https://octo-stats.vercel.app', // No trailing slash allowed!
+    image: '/icon.png', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@NikSchaefer_',
+    author: 'nikkschaefer@gmail.com Nik Schaefer',
+    name: 'Octo Stats',
+    url: 'https://nikschaefer.tech',
+    language: `en-us`,
+    keywords: ['Github', 'Stats', 'Code'],
   },
   plugins: [
-    "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
