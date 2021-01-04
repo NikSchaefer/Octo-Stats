@@ -217,16 +217,14 @@ export default function IndexPage() {
                     labels: toDate,
                     datasets: [{
                         label: 'Recent Commit History',
-                        borderColor: 'blue',
+                        borderColor: '#00caff',
                         fill: false,
                         data: data,
-                        showLine: true
-
                     }],
                 },
                 options: {
                     title: {
-                        text: 'Chart.js Time Scale'
+                        text: 'Git Commit History'
                     },
                     scales: {
                         xAxes: [{
