@@ -156,10 +156,6 @@ interface LangStats {
     label: string,
     value: number,
 }
-interface commitHist {
-    times: Date[],
-    commits: number[]
-}
 let isActive = true
 let isEvent = true
 export default function IndexPage() {
@@ -229,11 +225,6 @@ export default function IndexPage() {
                     }],
                 },
                 options: {
-                    elements: {
-                        line: {
-                            tension: 0
-                        }
-                    },
                     title: {
                         text: 'Chart.js Time Scale'
                     },
