@@ -7,20 +7,13 @@ module.exports = {
     image: '/icon.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@NikSchaefer_',
     author: 'nikkschaefer@gmail.com Nik Schaefer',
-    name: 'Octo Stats',
-    url: 'https://nikschaefer.tech',
+    url: 'https://octo-stats.vercel.app/',
     language: `en-us`,
     keywords: ['Github', 'Stats', 'Code'],
   },
   plugins: [
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "\u0016",
-      },
-    },
-    "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
