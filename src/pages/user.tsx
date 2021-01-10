@@ -4,15 +4,19 @@ import { userData, defUserData, Repo, Event } from '../Components/interfaces'
 import * as Icon from "../Components/svg"
 import '../Components/index.css'
 import { Chart } from 'chart.js'
+import {motion} from 'framer-motion'
 function Box(props: { num: number, name: string }) {
     function numberWithCommas(x: number) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     return (
-        <div className='box'>
+        <motion.div
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className='box'>
             <h2>{numberWithCommas(props.num)}</h2>
             <h3>{props.name}</h3>
-        </div>
+        </motion.div>
     )
 }
 function Repos(props: { arr: Repo[], sort: sort, value: boolean }): any {
@@ -49,7 +53,7 @@ function Repos(props: { arr: Repo[], sort: sort, value: boolean }): any {
     }
     for (let i = 0; i < length; i++) {
         out.push(
-            <a key={arr[i].name} href={arr[i].html_url} className="repo">
+            <motion.a key={arr[i].name} href={arr[i].html_url} className="repo">
                 <h2><Icon.Repo /> {arr[i].name}</h2>
                 <p>{arr[i].description}</p>
                 <div className="repo__bottom">
@@ -59,7 +63,7 @@ function Repos(props: { arr: Repo[], sort: sort, value: boolean }): any {
                     <p>{arr[i].forks_count}</p>
                     <p style={{ fontSize: '15px', marginLeft: 'auto' }}>{arr[i].size} KB</p>
                 </div>
-            </a>
+            </motion.a>
         )
     }
     return out
