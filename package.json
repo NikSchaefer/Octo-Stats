@@ -22,7 +22,7 @@
     "chart.js": "^2.9.4",
     "framer-motion": "^4.0.3",
     "gatsby": "^2.32.11",
-    "gatsby-image": "^3.1.0",
+    "gatsby-image": "^3.2.0",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sharp": "^2.14.3",
