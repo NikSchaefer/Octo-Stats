@@ -20,7 +20,7 @@
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "framer-motion": "^4.1.16",
-    "gatsby": "^2.32.13",
+    "gatsby": "^3.5.0",
     "gatsby-image": "^3.5.0",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-react-helmet": "^4.5.0",
