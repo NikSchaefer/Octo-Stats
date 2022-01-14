@@ -1,281 +1,290 @@
-html, body {
-    margin: 0;
-    font-family: Inter, system, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arial, sans-serif;
-    text-align: center;
-    font-size: 22px;
-    color: var(--dark-gray);
-    background-color: whitesmoke;
+html,
+body {
+	margin: 0;
+	font-family: Inter, system, -apple-system, BlinkMacSystemFont, Roboto,
+		"Segoe UI", Arial, sans-serif;
+	text-align: center;
+	font-size: 22px;
+	color: var(--dark-gray);
+	background-color: whitesmoke;
 }
 
 :root {
-    --dark-gray: rgb(42, 42, 46);
-    --blue: rgb(0, 102, 255);
-    --gray: rgb(56, 56, 56);
+	--dark-gray: rgb(42, 42, 46);
+	--blue: rgb(0, 102, 255);
+	--gray: rgb(56, 56, 56);
 }
 
 * {
-    z-index: inherit;
+	z-index: inherit;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
-h1, h2, h3 {
-    font-weight: 400;
-    margin: 0;
+h1,
+h2,
+h3 {
+	font-weight: 400;
+	margin: 0;
 }
 
 .info {
-    width: 100%;
-    background-color: var(--dark-gray);
-    min-height: 50vh;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    flex-direction: column;
+	width: 100%;
+	background-color: var(--dark-gray);
+	min-height: 50vh;
+	height: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	flex-direction: column;
 }
 
 .info-svg {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 50px;
-    height: 50px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 50px;
+	height: 50px;
 }
 
 .avatar {
-    border-radius: 100%;
-    width: 180px;
-    height: 180px;
+	border-radius: 100%;
+	width: 180px;
+	height: 180px;
 }
 
 .info-text a {
-    color: var(--blue);
+	color: var(--blue);
 }
 
 .info-text p {
-    font-size: 20px;
-    max-width: 500px
+	font-size: 20px;
+	max-width: 500px;
 }
 
 .info__subtext {
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    margin: 0 5px;
+	display: flex;
+	width: fit-content;
+	align-items: center;
+	margin: 0 5px;
 }
 
 .info__subtext p {
-    margin-left: 5px;
+	margin-left: 5px;
 }
 
 .boxes {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px 0;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 0;
 }
 
-.flex, .box, .home, .boxes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.flex,
+.box,
+.home,
+.boxes {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .box h2 {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 .box h3 {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 .box {
-    width: 170px;
-    height: 90px;
-    flex-direction: column;
-    background-color: var(--gray);
-    border-radius: 5px;
-    margin: 3px 6px;
+	width: 170px;
+	height: 90px;
+	flex-direction: column;
+	background-color: var(--gray);
+	border-radius: 5px;
+	margin: 3px 6px;
 }
 
 #graph__color {
-    background-color: var(--dark-gray);
-    height: 100px;
-    width: 100%;
+	background-color: var(--dark-gray);
+	height: 100px;
+	width: 100%;
 }
 
 .graphs {
-    display: flex;
-    justify-content: center;
-    margin-top: -100px;
-    flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	margin-top: -100px;
+	flex-wrap: wrap;
 }
 
-.graph, .commit {
-    background-color: white;
-    border-radius: 5px;
-    height: 350px;
-    padding: 25px;
-    width: 250px;
-    margin: 5px 20px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.137);
-    text-align: left;
+.graph,
+.commit {
+	background-color: white;
+	border-radius: 5px;
+	height: 350px;
+	padding: 25px;
+	width: 250px;
+	margin: 5px 20px;
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.137);
+	text-align: left;
 }
 
 .commit h5 {
-    font-size: 16px;
-    margin: 0;
+	font-size: 16px;
+	margin: 0;
 }
 
 .commit p {
-    font-size: 22px;
-    margin: 0;
+	font-size: 22px;
+	margin: 0;
 }
 
 .graph-container {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 .graph__lang-div {
-    margin: 0;
-    font-size: 16px;
-    position: relative;
+	margin: 0;
+	font-size: 16px;
+	position: relative;
 }
 
 .graph__lang-div div {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    background-color: violet;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background-color: violet;
 }
 
 .graph__lang-div p {
-    margin: auto;
+	margin: auto;
 }
 
 .repos {
-    width: 95%;
-    max-width: 1300px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 100px auto;
+	width: 95%;
+	max-width: 1300px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 100px auto;
 }
 
 .sorting-options {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	width: 90%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .repo {
-    width: 300px;
-    height: 200px;
-    text-align: left;
-    padding: 30px;
-    border-radius: 5px;
-    margin: 10px;
-    background-color: white;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.137);
-    position: relative;
-    transition: all ease-in-out 0.2s;
+	width: 300px;
+	height: 200px;
+	text-align: left;
+	padding: 30px;
+	border-radius: 5px;
+	margin: 10px;
+	background-color: white;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.137);
+	position: relative;
+	transition: all ease-in-out 0.2s;
 }
 
 .repo:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.021);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.021);
 }
 
 .repo h2 {
-    font-size: 22px;
-    font-weight: 600;
-    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+	font-size: 22px;
+	font-weight: 600;
+	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+		"Lucida Console", Monaco, monospace;
 }
 
 .repo p {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 .repo__bottom {
-    display: flex;
-    position: absolute;
-    bottom: 20px;
-    width: 80%;
-    align-items: center;
+	display: flex;
+	position: absolute;
+	bottom: 20px;
+	width: 80%;
+	align-items: center;
 }
 
 .repo__bottom p {
-    margin: 0 10px;
+	margin: 0 10px;
 }
 
 .repos__title {
-    font-size: 40px;
-    margin: 20px 20% 20px 0;
+	font-size: 40px;
+	margin: 20px 20% 20px 0;
 }
 
 .sort-by {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 }
 
 .sort-by h2 {
-    flex-basis: 100%;
+	flex-basis: 100%;
 }
 
 .sort-by p {
-    color: var(--blue)
+	color: var(--blue);
 }
 
 .sort-by p:hover {
-    text-decoration: underline;
-    cursor: pointer;
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 svg {
-    width: 20px;
-    height: 20px;
+	width: 20px;
+	height: 20px;
 }
 
 path {
-    fill: var(--gray)
+	fill: var(--gray);
 }
 
 .view-more {
-    flex-basis: 100%;
+	flex-basis: 100%;
 }
 
 .view-more:hover {
-    color: blue;
-    cursor: pointer;
+	color: blue;
+	cursor: pointer;
 }
 
 .home {
-    height: 90vh;
-    padding-bottom: 10vh;
-    background-color: var(--dark-gray);
-    color: white;
-    flex-direction: column;
+	height: 90vh;
+	padding-bottom: 10vh;
+	background-color: var(--dark-gray);
+	color: white;
+	flex-direction: column;
 }
 
 input {
-    background-color: var(--gray);
-    font-size: 25px;
-    padding: 20px;
-    margin: 50px 0;
-    outline: none;
-    border: none;
-    color: white;
+	background-color: var(--gray);
+	font-size: 25px;
+	padding: 20px;
+	margin: 50px 0;
+	outline: none;
+	border: none;
+	color: white;
 }
 
 .home-img {
-    width: 200px;
-    height: 200px;
+	width: 200px;
+	height: 200px;
 }
