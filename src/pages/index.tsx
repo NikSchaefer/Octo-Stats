@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../Components/index.css";
+import "../component/index.css";
 import Axios from "axios";
 
 export default function IndexPage() {

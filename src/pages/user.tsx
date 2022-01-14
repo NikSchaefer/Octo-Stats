@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
-import { userData, defUserData, LangStats, Repo, Event } from "../components/interfaces";
-import * as Icon from "../components/svg";
+import { userData, defUserData, LangStats, Repo, Event } from "../component/interfaces";
+import * as Icon from "../component/svg";
 import "../components/index.css";
 import Chart from "chart.js/auto";
 
