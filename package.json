@@ -25,7 +25,7 @@
 		"gatsby-plugin-react-helmet": "^5.9.0",
 		"gatsby-plugin-sharp": "^4.9.0",
 		"gatsby-plugin-typescript": "^4.10.0",
-		"gatsby-source-filesystem": "^4.9.0",
+		"gatsby-source-filesystem": "^4.10.0",
 		"gatsby-transformer-sharp": "^4.9.0",
 		"prettier": "^2.5.1",
 		"query-string": "^7.1.1",
