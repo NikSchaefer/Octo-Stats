@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
-import { userData, defUserData, LangStats, Repo, Event } from "../component/interfaces";
+import {
+	userData,
+	defUserData,
+	LangStats,
+	Repo,
+	Event,
+} from "../component/interfaces";
 import * as Icon from "../component/svg";
 import "../component/index.css";
 import Chart from "chart.js/auto";
@@ -16,8 +22,11 @@ function Box(props: { num: number; name: string }) {
 		</div>
 	);
 }
-function Repos(props: { arr: Repo[]; sort: sort; value: boolean }): any {
-	let out = [];
+function Repos(props: {
+	arr: Repo[];
+	sort: sort;
+	value: boolean;
+}): JSX.Element {
 	let arr: Repo[] = [];
 	if (props.arr.length === 0) {
 		return <></>;
@@ -45,26 +54,28 @@ function Repos(props: { arr: Repo[]; sort: sort; value: boolean }): any {
 			return b.stargazers_count - a.stargazers_count;
 		});
 	}
-	for (let i = 0; i < length; i++) {
-		out.push(
-			<a key={arr[i].name} href={arr[i].html_url} className="repo">
-				<h2>
-					<Icon.Repo /> {arr[i].name}
-				</h2>
-				<p>{arr[i].description}</p>
-				<div className="repo__bottom">
-					<Icon.Star />
-					<p>{arr[i].stargazers_count}</p>
-					<Icon.Fork />
-					<p>{arr[i].forks_count}</p>
-					<p style={{ fontSize: "15px", marginLeft: "auto" }}>
-						{arr[i].size} KB
-					</p>
-				</div>
-			</a>
-		);
-	}
-	return out;
+
+	return (
+		<>
+			{arr.map((item: Repo) => (
+				<a key={item.name} href={item.html_url} className="repo">
+					<h2>
+						<Icon.Repo /> {item.name}
+					</h2>
+					<p>{item.description}</p>
+					<div className="repo__bottom">
+						<Icon.Star />
+						<p>{item.stargazers_count}</p>
+						<Icon.Fork />
+						<p>{item.forks_count}</p>
+						<p style={{ fontSize: "15px", marginLeft: "auto" }}>
+							{item.size} KB
+						</p>
+					</div>
+				</a>
+			))}
+		</>
+	);
 }
 function getLangStats(repos: any[]) {
 	let mapper = function (ent: { language: any }) {
@@ -97,14 +108,14 @@ function getLangStats(repos: any[]) {
 }
 function GetCommitHist(hist: Event[]) {
 	const created: Date[] = hist.map((temp) => new Date(temp.created_at));
-	let commits = [];
+	let commits: number[] = [];
 	let out = [];
 	for (let i = 0; i < hist.length; i++) {
-		if (hist[i].payload.commits === undefined) {
-			continue;
+		if (hist[i].payload.commits !== undefined) {
+			commits.push(hist[i].payload.commits.length);
 		}
-		commits.push(hist[i].payload.commits.length);
 	}
+
 	for (let j = 0; j < created.length; j++) {
 		out.push({
 			x: created[j].getTime(),
@@ -262,7 +273,7 @@ export default function IndexPage() {
 				},
 			});
 		}
-	});
+	}, []);
 	useEffect(() => {
 		const a = window.location.href.split("=");
 		const user = a[a.length - 1];
