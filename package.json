@@ -27,7 +27,7 @@
 		"gatsby-plugin-typescript": "^4.25.0",
 		"gatsby-source-filesystem": "^4.24.0",
 		"gatsby-transformer-sharp": "^4.21.0",
-		"prettier": "^2.8.0",
+		"prettier": "^2.8.1",
 		"query-string": "^7.1.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
